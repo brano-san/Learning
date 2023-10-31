@@ -1,8 +1,10 @@
 #pragma once
 #include <vector>
 
-void bubleSort(std::vector<int> vec);
+void print(std::vector<int> const& vec);
 
-void insertionSort(std::vector<int> vec);
+void bubbleSort(std::vector<int>& vec);
 
-void selectionSort(std::vector<int> vec);
+void insertionSort(std::vector<int>& vec);
+
+void selectionSort(std::vector<int>& vec);

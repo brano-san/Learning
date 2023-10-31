@@ -15,11 +15,13 @@
 #include "src/Random/Random.h"
 #include "src/Stringizing/TokenStringizing.h"
 #include "src/Timer/Timer.hpp"
-
+#include "src/Sorts/Sorts.h"
 
 using namespace std;
 
 int main()
 {
-	pingPong();
+	std::vector vec({ 8, 7, 11, 3, 2, 1, 2, 1, 6 });
+	selectionSort(vec);
+	print(vec);
 }
