@@ -12,3 +12,5 @@ void selectionSort(std::vector<int>& vec);
 void qSortHorar(std::vector<int>& vec);
 
 void qSortLomuto(std::vector<int>& vec);
+
+void mergeSort(std::vector<int>& vec);

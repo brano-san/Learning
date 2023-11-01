@@ -47,7 +47,7 @@ void selectionSort(std::vector<int>& vec)
 		std::swap(vec[min], vec[i]);
 	}
 }
-
+  
 int partition(std::vector<int>& vec, int left, int right)
 {
 	int pivot = vec[left], j = left;
@@ -78,7 +78,7 @@ void qSortL(std::vector<int>& vec, int left, int right)
 void qSortH(std::vector<int>& vec, int left, int right)
 {
 	if (right - left <= 0) return; 
-	const int pivot = vec[left];
+	const int pivot = vec[left + (right - left) / 2];
 	int i = left, j = right;
 
 	while (i < j)
@@ -104,4 +104,46 @@ void qSortHorar(std::vector<int>& vec)
 void qSortLomuto(std::vector<int>& vec)
 {
 	qSortL(vec, 0, vec.size() - 1);
+}
+
+void merge(std::vector<int>& vec, int left, int mid, int right)
+{
+	std::vector<int> temp(right - left + 1);
+	int i = left, j = mid + 1, k = 0;
+
+	while (i <= mid && j <= right)
+	{
+		if (vec[i] <= vec[j])
+			temp[k++] = vec[i++];
+		else
+			temp[k++] = vec[j++];
+	}
+	while (i <= mid)
+	{
+		temp[k++] = vec[i++];
+	}
+	while (j <= right)
+	{
+		temp[k++] = vec[j++];
+	}
+	k = 0;
+	for (int i = left; i < right + 1; ++i)
+	{
+		vec[i] = temp[k++];
+	}
+}
+
+void mergeSortT(std::vector<int>& vec, int left, int right)
+{
+	if (right - left <= 0) return;
+	int middle = left + (right - left) / 2;
+	mergeSortT(vec, left, middle);
+	mergeSortT(vec, middle + 1, right);
+
+	merge(vec, left, middle, right);
+}
+
+void mergeSort(std::vector<int>& vec)
+{
+	mergeSortT(vec, 0, vec.size() - 1);
 }

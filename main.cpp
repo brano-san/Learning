@@ -32,4 +32,6 @@ int main()
 	test(qSortHorar);
 	std::cout << std::endl << std::endl << "----------QSort Lomuto Sort----------" << endl;
 	test(qSortLomuto);
+	std::cout << std::endl << std::endl << "----------Merge Sort----------" << endl;
+	test(mergeSort);
 }
