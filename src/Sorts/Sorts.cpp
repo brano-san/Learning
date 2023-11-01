@@ -47,3 +47,61 @@ void selectionSort(std::vector<int>& vec)
 		std::swap(vec[min], vec[i]);
 	}
 }
+
+int partition(std::vector<int>& vec, int left, int right)
+{
+	int pivot = vec[left], j = left;
+
+	for (int i = left + 1; i < right + 1; ++i)
+	{
+		if (pivot > vec[i])
+		{
+			++j;
+			std::swap(vec[i], vec[j]);
+		}
+	}
+	std::swap(vec[left], vec[j]);
+
+	return j;
+}
+
+void qSortL(std::vector<int>& vec, int left, int right)
+{
+	if (right - left <= 0) return;
+
+	const int h = partition(vec, left, right);
+
+	qSortL(vec, left, h - 1);
+	qSortL(vec, h + 1, right);
+}
+
+void qSortH(std::vector<int>& vec, int left, int right)
+{
+	if (right - left <= 0) return; 
+	const int pivot = vec[left];
+	int i = left, j = right;
+
+	while (i < j)
+	{
+		while (vec[i] < pivot)
+			i++;
+		while (vec[j] > pivot)
+			j--;
+
+		if (i <= j)
+			std::swap(vec[i++], vec[j--]);
+	}
+
+	qSortH(vec, left, j);
+	qSortH(vec, i, right);
+}
+
+void qSortHorar(std::vector<int>& vec)
+{
+	qSortH(vec, 0, vec.size() - 1);
+}
+
+void qSortLomuto(std::vector<int>& vec)
+{
+	qSortL(vec, 0, vec.size() - 1);
+}

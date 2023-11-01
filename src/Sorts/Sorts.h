@@ -8,3 +8,7 @@ void bubbleSort(std::vector<int>& vec);
 void insertionSort(std::vector<int>& vec);
 
 void selectionSort(std::vector<int>& vec);
+
+void qSortHorar(std::vector<int>& vec);
+
+void qSortLomuto(std::vector<int>& vec);
