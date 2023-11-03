@@ -17,21 +17,15 @@
 #include "src/Timer/Timer.hpp"
 #include "src/Sorts/Sorts.h"
 #include "src/Sorts/tests/tests.h"
+#include "src/Search/Search.h"
+#include "src/Search/tests/tests.h"
 
 using namespace std;
 
 int main()
 {
-	std::cout <<  "----------Bubble Sort----------" << endl;
-	test(bubbleSort);
-	std::cout << std::endl << std::endl << "----------Selection Sort----------" << endl;
-	test(selectionSort);
-	std::cout << std::endl << std::endl << "----------Insertion Sort----------" << endl;
-	test(insertionSort);
-	std::cout << std::endl << std::endl << "----------QSort Horar Sort----------" << endl;
-	test(qSortHorar);
-	std::cout << std::endl << std::endl << "----------QSort Lomuto Sort----------" << endl;
-	test(qSortLomuto);
-	std::cout << std::endl << std::endl << "----------Merge Sort----------" << endl;
-	test(mergeSort);
+	cout << "-----------Binary Search-----------" << endl;
+	searchTest(binarySearch);
+	cout << endl << endl << "-----------Ternary Search-----------" << endl;
+	searchTest(ternarySearch);
 }

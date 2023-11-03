@@ -5,7 +5,7 @@
 
 #include "../src/Sorts/Sorts.h"
 
-void test(std::function<void(std::vector<int>&)> sort)
+void sortTest(std::function<void(std::vector<int>&)> sort)
 {
 	std::vector<std::vector<int>> vectors
 	{
@@ -14,16 +14,19 @@ void test(std::function<void(std::vector<int>&)> sort)
 		{ 34237123, 7123672, 12344, 1234, 1244714, 1238451, 1, 0, -21344 },
 		{ 123, 22, 414, 12345, 1788, 4562, 12, 1, 0 }
 	};
+
 	auto vectors1 = vectors;
 	for (unsigned int i = 0; i < vectors.size(); ++i)
 	{
-		std::cout << "Expected result: " << std::endl;
 		std::ranges::sort(vectors1[i].begin(), vectors1[i].end());
+		sort(vectors[i]);
+
+		std::cout << "Expected result: " << std::endl;
 		print(vectors1[i]);
 		std::cout << "My result: " << std::endl;
-		sort(vectors[i]);
 		print(vectors[i]);
 	}
+
 	if (vectors == vectors1)
 		std::cout << "-----------TEST PASSED-----------" << std::endl;
 	else
